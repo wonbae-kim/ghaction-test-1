@@ -12,7 +12,7 @@ jobs:
       - name: Check if a user can be assigned
         run: |
           HTTP_RESP_CODE=$(curl -o /dev/null  -w "%{http_code}" -H "Accept: application/vnd.github+json" -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" https://api.github.com/repos/${{ github.repository }}/assignees/${{ github.event.sender.login }})
-          if [[ $HTTP_RESP_CODE != 203 ]]; then
+          if [[ $HTTP_RESP_CODE != 204 ]]; then
             echo "Check if a user can be assigned failed ($HTTP_RESP_CODE)"
             exit 1
           fi
