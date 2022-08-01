@@ -1,7 +1,7 @@
 name: Assign a PR to the person who created it
 
 on:
-  pull_request:
+  pull_request_target:
     branches: [ "main" ]
 
 jobs:
